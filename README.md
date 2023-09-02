@@ -38,16 +38,33 @@ soup = BeautifulSoup(html,'html.parser')
 print(soup.get_text())
 ```
 ### 词干提取
+词干主要目的是将词汇的不同形态和变化转化为其基本的词干（stem）或词根形式，以减少词汇的复杂性，从而提高文本处理和分析的效率。例如running->run,cats->cat,happier->happi；我喜欢的——>我喜欢，吃饭——>吃。可以看出中文的词干提取会更复杂些。  
+```python
+# HLTK英文词干提取
+from nltk.stem import PorterStemmer
+from nltk.stem.lancaster import LancasterStemmer
+from nltk.stem.snowball import SnowballStemmer
+pst = PorterStemmer() 
+lst = LancasterStemmer()
+lst.stem('eating')
+# 'eat'
+pst.stem('eating')
+# 'eat'
+```
+### 词形还原（Lemmatization）
+使用词形还原算法（如WordNet Lemmatizer）将词汇还原为其词根形式，以获得更准确的词汇。  
 
-### 词形还原（Lemmatization）：使用词形还原算法（如WordNet Lemmatizer）将词汇还原为其词根形式，以获得更准确的词汇。
+### 去除重复字符
+去除文本中连续重复的字符，以减少文本中的噪声。  
 
-### 去除重复字符：去除文本中连续重复的字符，以减少文本中的噪声。
+### 拼写检查与修复
+使用拼写检查工具（如PySpellChecker或Autocorrect）来检测和纠正拼写错误。  
 
-### 拼写检查与修复：使用拼写检查工具（如PySpellChecker或Autocorrect）来检测和纠正拼写错误。
+### 去除数字
+根据任务需要，可以选择去除文本中的数字或将其替换为特殊标记。  
 
-### 去除数字：根据任务需要，可以选择去除文本中的数字或将其替换为特殊标记。
-
-### 正则化文本：将文本中的同义词或近义词替换为统一的词汇，以减少词汇的多样性。
+### 正则化文本
+将文本中的同义词或近义词替换为统一的词汇，以减少词汇的多样性。  
 
 
 
@@ -55,4 +72,5 @@ print(soup.get_text())
 ### Jionlp
 
 ### jieba
+
 # CV领域
