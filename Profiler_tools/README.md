@@ -10,3 +10,8 @@ Use ``mprof run demo.py`` will run your python file and create a file, that file
 Use ``mprof plot`` will use matplotlib tools to draw a image by the latest memroy changing records
 
 ## Use nvidia-smi
+Use ```watch -n 1 nvidia-sim``` to show memory info. It will take a snapshot interval per second  
+But if you want to show memory info more faster, you can use  
+```
+watch
+```
